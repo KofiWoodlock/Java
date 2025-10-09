@@ -17,6 +17,7 @@ public class objects {
    public static void main(String[] args) {
     Rectangle cerealBox = new Rectangle(5, 10, 20, 30);
     Rectangle crealBoxPtr = cerealBox;
+    System.out.println("cerealBoxPtr: " + crealBoxPtr);
     cerealBox.translate(15, 25);
     System.out.println(cerealBox);
    } 
