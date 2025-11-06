@@ -46,8 +46,9 @@ public class Lab03 {
 		System.out.println("Result: " + sum);
 	}
 	/* Exercise 4 */
-	public static int factorial() {
-		int product;
+	public static int factorial(int x) {
+		int product = 0;
+		return product;
 	}
 
 }
