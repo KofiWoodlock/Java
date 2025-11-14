@@ -6,6 +6,19 @@ public class methods {
 
         /* Implementing a toString method can be useful for debugging */
         System.out.println(A);
+
+        /* When dealing with objects it is possible to have multiple variables 
+         * that reference the same object in heap memory
+         */
+        System.out.println("Example of two variables modifying same data");
+        Point x = new Point(5, 10, "Point X");
+        Point y = x;
+
+        System.out.println(x);
+
+        y.setX(0);
+        System.out.println(x);
+        System.out.println(y);
     }     
 }
 
@@ -17,8 +30,8 @@ class Point {
     String label;
 
     /* We can initialise attribute values using constructors */
-    Point(double iX, double iY, String iLabel) { x = iX; y = iY; label = iLabel; }
-    Point(double iX, double iY) { x = iX; y = iY; label=""; }
+    Point(double x, double y, String label) { this.x = x; this.y = y; this.label = label; }
+    Point(double x, double y) { this.x = x; this.y = y; this.label = ""; }
 
     /* We should create getter methods to control the access to the class 
      * attributes 
