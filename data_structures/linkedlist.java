@@ -2,7 +2,7 @@ package data_structures;
 
 public class linkedlist {
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList(5);    
+        LinkedList ll = new LinkedList();    
         System.out.println(ll);
     } 
 }
@@ -37,11 +37,30 @@ class LinkedList {
 
     /* Inserts a list node at the head */
     public void insertHead(ListNode node) {
-        if (this.isEmpty()) this.head = node; 
+        if (this.isEmpty()) {
+            this.head = node; 
+            this.length++;
+            return;
+        }
+        node.next = this.head;
+        this.head = node;
+        this.length++;
     }
     
     /* Inserts a list node at the tail */
-    public void insertTail(ListNode node) {}
+    public void insertTail(ListNode node) {
+        if (this.isEmpty()) {
+            this.head = node;
+            this.length++;
+            return;
+        }
+        ListNode curr = this.head;
+        while (curr.next != null) {
+            curr = curr.next;
+        }
+        curr.next = node;
+        this.length++;
+    }
 
     /* Removes list node at the head */
     public void removeHead() {}
@@ -70,13 +89,9 @@ class LinkedList {
         return out;
     }
 
-    /* private methods */
+    /* Returns the length of the linked list */
+    public int getLength() { return this.length; };
 
     /* Returns true if at least one node exists */
-    private boolean isEmpty() { return (this.head == null) ? true : false; }
-
-    /* Returns the length of the linked list */
-    private int getLength() { return this.length; };
-
-
+    public boolean isEmpty() { return (this.head == null) ? true : false; }
 }
