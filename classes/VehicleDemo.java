@@ -18,9 +18,8 @@ public class VehicleDemo {
         car.fuelcap = 16;
         car.passengers = 5;
         car.mpg = 33;
-        /* Calculate the distance that can be travelled on a full tank */
-        int d = car.fuelcap * car.mpg;
-        System.out.println("Car has " + car.passengers + " passengers. With a max distance of " + d + " miles");
+        /* Calculate the distance that can be travelled on a full tank */ 
+        System.out.println("Car has " + car.passengers + " passengers and has a range of " + car.range() + " miles");
 
         /* References work differently to primitive types during assignment */
         Vehicle car1 = new Vehicle();
@@ -38,4 +37,13 @@ class Vehicle {
     int passengers; // Number of seats
     int fuelcap; // fuel capacity 
     int mpg; // fuel consumption
+
+    /* Displays the range of the vehicle */
+    int range() {
+        return fuelcap * mpg;
+    }
+    /* Computes the fuel needed to travel m miles */
+    double fuelneeded(int miles) {
+        return (double) miles / mpg;
+    }
 }
