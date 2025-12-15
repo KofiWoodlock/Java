@@ -1,5 +1,21 @@
 package data_structures;
 import java.util.Scanner; public class arrays {
+
+/* Key terms
+ * Array
+    - A fixed size contiguous block of memory of homogenous type reffered to by a common name
+ * base-type
+    - The data type of elements within an array
+ * index
+    - A number used to describe the position of an element within an array
+ * multidimensional array
+    - An array that consists of arrays
+ * irregular array
+    - A multidimensional array where the lengths of higher dimensional arrays is no equal
+ * for-each loop
+    - An enhanced for loop that examines each element of a collection sequentially from start to end
+ */
+
     public static void main(String[] args) {
         /* The String[] args is an array of command line arguments 
         for example when compiling a program we could pass some arguments
@@ -17,10 +33,8 @@ import java.util.Scanner; public class arrays {
         int arr2[] = {1, 2, 3, 4, 5};
 
         System.out.println("Iterating over an array");
-        for (int i = 0; i < arr2.length; i++)
-            System.out.println(arr2[i]); 
-        System.out.println();
-        
+        printArr(arr2, "arr2");
+
         // System.out.println("Getting arguments from cmd line");
         // int[] p = getInts();
         // System.out.println(p);
@@ -68,6 +82,26 @@ import java.util.Scanner; public class arrays {
             nums[i] = getInt(); 
         return nums;
     }
+
+    /* Sorts an array using bubblesort */
+    void bubbleSort(int nums[]) {
+        for (int i=1; i < nums.length; i++)
+            for (int j = nums.length-1; j >= i; j--)
+                if (nums[i] > nums[j]) {
+                    int tmp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = nums[i];
+                }
+    }
+
+    /* Prints the contents of an array */
+    public static void printArr(int a[], String identifier) {
+        System.out.print(identifier + ": ");
+        for (int num: a) 
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
     /* Prints the contents of a two dimensional array */
     public static void printgrid(int[][] g) {
         int rows = g.length;
