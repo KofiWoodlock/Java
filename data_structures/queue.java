@@ -1,12 +1,7 @@
-package data_structures;
-
-public class queue {
-    
-}
 
 class LinearQueue {
-    char q[];
-    int put, get;
+    private char q[];
+    private int put, get;
 
     LinearQueue(int size) {
         q = new char[size];
@@ -31,6 +26,30 @@ class LinearQueue {
         return q[get++];
     }
 
+    @Override
+    public String toString() {
+        String out = "";
+        for (int i = 0; i <= put; i++) {
+            if (i == put)
+                out += q[i];
+            else {
+                out += (q[i] + " -> ");
+            }
+        }
+        return out;
+    }
+
     private boolean isEmpty() { return (get == put)? true : false; }
     private boolean isFull() { return (put == q.length)? true : false; }
+}
+
+
+public class queue {
+    public static void main(String[] args) {
+        LinearQueue q = new LinearQueue(10);
+        q.enqueue('a');
+        q.enqueue('b');
+        q.enqueue('c');
+        System.out.println(q);
+    }
 }
