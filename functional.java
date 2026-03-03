@@ -22,6 +22,10 @@
 https://www.freecodecamp.org/news/functional-programming-in-java
 */
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
 class Thermostat {
    private int idealTmp; 
    private Runnable coolDown;
@@ -70,6 +74,16 @@ public class functional {
         thermostat.updateTmp(15);
         thermostat.updateTmp(25);
 
+        System.out.println("---- Using Streams ----");
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 0; i <= 10; i++)
+            nums.add(i);        
+        Stream<Integer> stream = nums.stream();
+        Stream<Integer> evens = stream.filter(n -> n % 2 == 0);
+        evens.forEach((i) -> {
+            System.out.println(i);
+        });
     }
+
 }
 
